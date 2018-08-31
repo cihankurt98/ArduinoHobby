@@ -1,14 +1,24 @@
-int YaxisValue = 0;
-int XaxisValue = 0;
-int YaxisPin = A1;
-int XaxisPin = A0;
-int ClickPin = 2;
+#include <Servo.h> //This is the actual Servo library to make it easy.
+
+Servo myservo;  // create servo object to control a servo
+
+
+//Joystick
+int YaxisValue = 0; //The value of the Y axis
+int XaxisValue = 0; //The value of the X axis
+int YaxisPin = A1; // The analog pin of the Y axis
+int XaxisPin = A0; // The analog pin of the X axis
+int ClickPin = 2; // the digital pin of the Click
+
+//Servo
+int servoPosition = 0;    // variable to store the servo position
 
 
 void setup()
 {
   Serial.begin(9600);
   pinMode(ClickPin, INPUT);
+  myservo.attach(9);  // attaches the servo on pin 9 to the servo object
 }
 
 void loop()
